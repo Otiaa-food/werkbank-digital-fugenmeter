@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fugenmeter
 
-## Getting Started
+Digitales Aufmaß für Handwerksbetriebe (Fugenabdichtung, Fliesen-/Bodenleger, Garten- & Landschaftsbau). Jeder Betrieb hat einen eigenen Login, legt Projekte an und erfasst Positionen per Formel (z. B. `4.65 x 2 + 3.86 x 2`) statt mit Zettel und Taschenrechner.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, TypeScript, Tailwind CSS 4)
+- **Prisma** + **Postgres** (gedacht für Vercel Postgres / Neon)
+- **NextAuth v5** (Credentials-Login, E-Mail + Passwort)
+- **PWA**: installierbar auf dem Homescreen (`public/manifest.json`)
+
+## Lokal einrichten
 
 ```bash
+npm install
+cp .env.example .env.local   # DATABASE_URL + AUTH_SECRET eintragen
+npx prisma migrate dev --name init
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`AUTH_SECRET` erzeugen: `npx auth secret` (schreibt automatisch in `.env.local`) oder manuell einen zufälligen String eintragen.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Auf Vercel deployen
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Repo in Vercel importieren (**New Project** → GitHub-Repo auswählen).
+2. Im Projekt unter **Storage** eine **Postgres**-Datenbank hinzufügen (Vercel Postgres/Neon) — das setzt `DATABASE_URL` und `DATABASE_URL_UNPOOLED` automatisch als Umgebungsvariablen.
+3. Unter **Settings → Environment Variables** zusätzlich `AUTH_SECRET` setzen (zufälliger String, z. B. per `openssl rand -base64 32`).
+4. Deploy anstoßen. Beim Build läuft automatisch `prisma generate` (siehe `postinstall`-Skript); die Tabellen einmalig per `npx prisma migrate deploy` anlegen (lokal mit Produktions-`DATABASE_URL` ausführen, oder als Vercel-Build-Command ergänzen: `prisma migrate deploy && next build`).
+5. Seite öffnen → **Betrieb anlegen** → einloggen → Projekt anlegen → Positionen erfassen.
 
-## Learn More
+### Als App installieren
 
-To learn more about Next.js, take a look at the following resources:
+Die Seite ist eine PWA: in Chrome/Safari auf dem Handy öffnen → "Zum Homescreen hinzufügen" bzw. "App installieren". Kein App-Store-Prozess nötig.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Datenmodell
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Organization** — ein Handwerksbetrieb (eigene Nutzer, eigene Projekte)
+- **User** — Login je Organization
+- **Project** — ein Bauvorhaben mit Branchen-Profil (`FUGEN` / `FLIESEN` / `GALABAU`), das Positionen und Einheiten vorbelegt
+- **Entry** — eine erfasste Position (Etage/Bereich, Raum/Teilfläche, Position, Formel, Menge, Einheit)
 
-## Deploy on Vercel
+Die Formel-Auswertung und Branchen-Profile liegen in `src/lib/branches.ts` — reines TypeScript ohne Abhängigkeiten, direkt aus dem ursprünglichen Prototyp übernommen.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Bekannte nächste Schritte
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Mitarbeiter einladen (aktuell: ein Login pro Organization, aber jeder mit dem Account kann sich einloggen und Kürzel frei eintippen)
+- Projekte bearbeiten/löschen
+- PDF-Export für den Rechnungsabschluss
