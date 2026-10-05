@@ -24,7 +24,7 @@ export default async function DashboardPage() {
     <main className="flex-1 max-w-xl w-full mx-auto p-4 pb-12">
       <header className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-[family-name:var(--font-display)] font-extrabold uppercase tracking-wide text-2xl">
+          <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl">
             Maßwerk
           </h1>
           <p className="text-sm text-[#726C60]">{organization?.name}</p>
