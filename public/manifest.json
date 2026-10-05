@@ -1,6 +1,6 @@
 {
-  "name": "Fugenmeter",
-  "short_name": "Fugenmeter",
+  "name": "Maßwerk",
+  "short_name": "Maßwerk",
   "description": "Digitales Aufmaß für Handwerksbetriebe",
   "start_url": "/dashboard",
   "display": "standalone",

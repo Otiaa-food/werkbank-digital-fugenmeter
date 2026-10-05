@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
+import { sendRegistrationMail } from "@/lib/mail";
 
 export type RegisterState = { error?: string } | undefined;
 
@@ -42,6 +43,9 @@ export async function registerAction(
       },
     },
   });
+
+  // Bestätigungsmail – ein Fehler hier darf die Registrierung nicht verhindern
+  await sendRegistrationMail({ to: email, firma, name });
 
   redirect("/login?registered=1");
 }

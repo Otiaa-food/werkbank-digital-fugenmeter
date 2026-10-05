@@ -19,13 +19,13 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fugenmeter",
+  title: "Maßwerk",
   description: "Digitales Aufmaß für Handwerksbetriebe",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Fugenmeter",
+    title: "Maßwerk",
   },
 };
 

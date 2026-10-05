@@ -32,7 +32,7 @@ export function EntryForm({
     // Bequemlichkeit pro Gerät: letztes Kürzel vorbelegen (bewusst erst nach dem
     // ersten Render, um Server/Client-Hydration nicht zu verwerfen).
     try {
-      const last = localStorage.getItem("fugenmeter_last_mitarbeiter");
+      const last = localStorage.getItem("masswerk_last_mitarbeiter");
       // eslint-disable-next-line react-hooks/set-state-in-effect -- gewollte Hydration aus localStorage
       if (last) setMitarbeiter(last);
     } catch {}
@@ -47,7 +47,7 @@ export function EntryForm({
       setFormel("");
       if (mitarbeiter) {
         try {
-          localStorage.setItem("fugenmeter_last_mitarbeiter", mitarbeiter);
+          localStorage.setItem("masswerk_last_mitarbeiter", mitarbeiter);
         } catch {}
       }
     }

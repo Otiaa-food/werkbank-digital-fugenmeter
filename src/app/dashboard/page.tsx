@@ -25,7 +25,7 @@ export default async function DashboardPage() {
       <header className="flex items-center justify-between mb-6">
         <div>
           <h1 className="font-[family-name:var(--font-display)] font-extrabold uppercase tracking-wide text-2xl">
-            Fugenmeter
+            Maßwerk
           </h1>
           <p className="text-sm text-[#726C60]">{organization?.name}</p>
         </div>

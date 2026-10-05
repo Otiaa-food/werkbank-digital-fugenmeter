@@ -1,5 +1,5 @@
 // Geteilte Geschäftslogik: Branchen-Profile und Formel-Auswertung.
-// Direkt aus dem Fugenmeter-Prototyp (Claude-Artifact) übernommen.
+// Direkt aus dem Maßwerk-Prototyp (Claude-Artifact) übernommen.
 
 export type BrancheKey = "FUGEN" | "FLIESEN" | "GALABAU";
 

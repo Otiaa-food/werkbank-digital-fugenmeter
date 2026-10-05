@@ -13,7 +13,7 @@ export default function RegisterPage() {
     <main className="flex-1 flex items-center justify-center p-4">
       <div className="w-full max-w-sm bg-white border border-[#DAD3C4] rounded-2xl p-6">
         <h1 className="font-[family-name:var(--font-display)] font-extrabold uppercase tracking-wide text-2xl mb-1">
-          Fugenmeter
+          Maßwerk
         </h1>
         <p className="text-sm text-[#726C60] mb-6">
           Neuen Betrieb anlegen und loslegen.

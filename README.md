@@ -1,4 +1,4 @@
-# Fugenmeter
+# Maßwerk
 
 Digitales Aufmaß für Handwerksbetriebe (Fugenabdichtung, Fliesen-/Bodenleger, Garten- & Landschaftsbau). Jeder Betrieb hat einen eigenen Login, legt Projekte an und erfasst Positionen per Formel (z. B. `4.65 x 2 + 3.86 x 2`) statt mit Zettel und Taschenrechner.
 
