@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+/* Maßwerk nutzt eine feste helle Farbwelt. Die Karten und Eingaben sind weiß,
+   daher darf der Dunkelmodus des Geräts weder Hintergrund noch Schriftfarbe
+   überschreiben (sonst: helle Schrift auf weißen Feldern). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #ede9e1;
+  --foreground: #24211d;
 }
 
 @theme inline {
@@ -12,15 +16,30 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Formularfelder: immer dunkle Schrift auf weißem Grund, nie breiter als ihr Container */
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #24211d;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9a9385;
+  opacity: 1;
+}
+
+/* Flex-Kinder dürfen schrumpfen, statt die Karte zu sprengen */
+label {
+  min-width: 0;
 }
