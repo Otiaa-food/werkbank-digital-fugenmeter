@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "Maßwerk",
   description: "Digitales Aufmaß für Handwerksbetriebe",
   manifest: "/manifest.json",
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

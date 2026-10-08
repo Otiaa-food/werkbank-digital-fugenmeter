@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { PROFILES } from "@/lib/branches";
 import { createProjectAction } from "./_actions/actions";
 import Link from "next/link";
+import { LogoBadge } from "@/components/Logo";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
@@ -29,16 +30,19 @@ export default async function DashboardPage() {
           </h1>
           <p className="text-sm text-[#587064]">{organization?.name}</p>
         </div>
-        <form
-          action={async () => {
-            "use server";
-            await signOut({ redirectTo: "/login" });
-          }}
-        >
-          <button type="submit" className="text-sm text-[#1F6B58] underline">
-            Abmelden
-          </button>
-        </form>
+        <div className="flex items-center gap-3">
+          <form
+            action={async () => {
+              "use server";
+              await signOut({ redirectTo: "/login" });
+            }}
+          >
+            <button type="submit" className="text-sm text-[#1F6B58] underline">
+              Abmelden
+            </button>
+          </form>
+          <LogoBadge />
+        </div>
       </header>
 
       <section className="bg-white border border-[#C3D8CC] rounded-2xl p-4 mb-6">

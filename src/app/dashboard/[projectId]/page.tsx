@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { PROFILES, sumByUnit, fmt, type BrancheKey } from "@/lib/branches";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
+import { LogoBadge } from "@/components/Logo";
 import { EntryForm } from "./EntryForm";
 import { ExportCsvButton } from "./ExportCsvButton";
 import { deleteEntryAction } from "../_actions/actions";
@@ -43,9 +44,12 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
 
   return (
     <main className="flex-1 max-w-xl w-full mx-auto p-4 pb-16">
-      <Link href="/dashboard" className="text-sm text-[#1F6B58] underline">
-        ← Alle Projekte
-      </Link>
+      <div className="flex items-center justify-between">
+        <Link href="/dashboard" className="text-sm text-[#1F6B58] underline">
+          ← Alle Projekte
+        </Link>
+        <LogoBadge />
+      </div>
 
       <header className="mt-2 mb-5">
         <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl">

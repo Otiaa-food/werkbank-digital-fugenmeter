@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
+import { LogoFull } from "@/components/Logo";
 import { registerAction, type RegisterState } from "./actions";
 
 const initialState: RegisterState = undefined;
@@ -12,10 +13,10 @@ export default function RegisterPage() {
   return (
     <main className="flex-1 flex items-center justify-center p-4">
       <div className="w-full max-w-sm bg-white border border-[#C3D8CC] rounded-2xl p-6">
-        <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl inline-block bg-[#1F6B58] text-white rounded-xl px-4 py-1.5 mb-1">
-          Maßwerk
+        <h1 className="flex justify-center mb-3">
+          <LogoFull />
         </h1>
-        <p className="text-sm text-[#587064] mb-6">
+        <p className="text-sm text-[#587064] text-center mb-6">
           Neuen Betrieb anlegen und loslegen.
         </p>
 
