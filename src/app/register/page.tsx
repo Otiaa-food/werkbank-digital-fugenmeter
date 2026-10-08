@@ -11,11 +11,11 @@ export default function RegisterPage() {
 
   return (
     <main className="flex-1 flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-white border border-[#DAD3C4] rounded-2xl p-6">
-        <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl mb-1">
+      <div className="w-full max-w-sm bg-white border border-[#C3D8CC] rounded-2xl p-6">
+        <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl inline-block bg-[#1F6B58] text-white rounded-xl px-4 py-1.5 mb-1">
           Maßwerk
         </h1>
-        <p className="text-sm text-[#726C60] mb-6">
+        <p className="text-sm text-[#587064] mb-6">
           Neuen Betrieb anlegen und loslegen.
         </p>
 
@@ -34,15 +34,15 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={pending}
-            className="mt-2 w-full bg-[#FF6A13] text-white font-[family-name:var(--font-display)] font-bold uppercase tracking-wide text-lg rounded-lg py-3 disabled:opacity-50"
+            className="mt-2 w-full bg-[#1F6B58] text-white font-[family-name:var(--font-display)] font-bold tracking-wide text-lg rounded-lg py-3 disabled:opacity-50"
           >
             {pending ? "Wird angelegt …" : "Betrieb anlegen"}
           </button>
         </form>
 
-        <p className="text-sm text-[#726C60] mt-4">
+        <p className="text-sm text-[#587064] mt-4">
           Schon registriert?{" "}
-          <Link href="/login" className="text-[#4A6670] underline">
+          <Link href="/login" className="text-[#1F6B58] underline">
             Zum Login
           </Link>
         </p>
@@ -66,7 +66,7 @@ function Field({
 }) {
   return (
     <label className="flex flex-col gap-1">
-      <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+      <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
         {label}
       </span>
       <input
@@ -74,7 +74,7 @@ function Field({
         type={type}
         placeholder={placeholder}
         required={required}
-        className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+        className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
       />
     </label>
   );

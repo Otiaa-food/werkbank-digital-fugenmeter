@@ -26,16 +26,16 @@ export async function sendRegistrationMail(opts: {
   const firma = escapeHtml(opts.firma);
 
   const html = `
-    <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;color:#24211D">
+    <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;color:#12261D">
       <h1 style="font-size:22px;margin:0 0 12px">Willkommen bei Maßwerk</h1>
       <p>${hallo},</p>
       <p>dein Betrieb <strong>${firma}</strong> wurde erfolgreich angelegt. Du kannst dich ab sofort mit dieser E-Mail-Adresse anmelden und dein erstes Aufmaß erfassen.</p>
       ${
         loginUrl
-          ? `<p><a href="${loginUrl}" style="display:inline-block;background:#FF6A13;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:bold">Jetzt anmelden</a></p>`
+          ? `<p><a href="${loginUrl}" style="display:inline-block;background:#1F6B58;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:bold">Jetzt anmelden</a></p>`
           : ""
       }
-      <p style="color:#726C60;font-size:13px">Du hast dich nicht selbst registriert? Dann kannst du diese Mail ignorieren.</p>
+      <p style="color:#587064;font-size:13px">Du hast dich nicht selbst registriert? Dann kannst du diese Mail ignorieren.</p>
     </div>`;
 
   try {

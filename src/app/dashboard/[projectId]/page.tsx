@@ -43,15 +43,15 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
 
   return (
     <main className="flex-1 max-w-xl w-full mx-auto p-4 pb-16">
-      <Link href="/dashboard" className="text-sm text-[#4A6670] underline">
+      <Link href="/dashboard" className="text-sm text-[#1F6B58] underline">
         ← Alle Projekte
       </Link>
 
       <header className="mt-2 mb-5">
-        <h1 className="font-[family-name:var(--font-display)] font-extrabold uppercase tracking-wide text-2xl">
+        <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl">
           {project.name}
         </h1>
-        <span className="inline-block text-xs font-semibold uppercase tracking-wide text-[#4A6670] border border-[#4A6670] rounded-full px-2.5 py-0.5 mt-1">
+        <span className="inline-block text-xs font-semibold uppercase tracking-wide text-[#12261D] bg-[#F2B531]/30 border border-[#F2B531] rounded-full px-2.5 py-0.5 mt-1">
           {profile.label}
         </span>
 
@@ -64,20 +64,20 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
                 <span className="font-[family-name:var(--font-mono)] font-bold text-3xl leading-none">
                   {fmt(s.total)}
                 </span>
-                <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+                <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
                   {s.unit}
                 </span>
               </div>
             ))
           )}
         </div>
-        <p className="text-xs text-[#726C60] mt-1">
+        <p className="text-xs text-[#587064] mt-1">
           {raumCount} {raumCount === 1 ? "Raum/Fläche" : "Räume/Flächen"} · {project.entries.length}{" "}
           {project.entries.length === 1 ? "Position" : "Positionen"}
         </p>
       </header>
 
-      <section className="bg-white border border-[#DAD3C4] rounded-2xl p-4 mb-6">
+      <section className="bg-white border border-[#C3D8CC] rounded-2xl p-4 mb-6">
         <EntryForm
           projectId={project.id}
           branche={branche}
@@ -86,12 +86,12 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
         />
       </section>
 
-      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#726C60] mb-3">
+      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#587064] mb-3">
         Aufmaß
       </h2>
 
       {project.entries.length === 0 ? (
-        <p className="text-sm text-[#726C60] text-center py-8">
+        <p className="text-sm text-[#587064] text-center py-8">
           Noch kein Aufmaß erfasst.
         </p>
       ) : (
@@ -101,11 +101,11 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
             const etageSums = sumByUnit(etageEntries);
             return (
               <div key={etage}>
-                <div className="flex justify-between items-baseline border-b-2 border-[#24211D] pb-1.5 mb-2">
-                  <span className="font-[family-name:var(--font-display)] font-extrabold uppercase text-lg">
+                <div className="flex justify-between items-baseline border-b-2 border-[#12261D] pb-1.5 mb-2">
+                  <span className="font-[family-name:var(--font-display)] font-extrabold text-lg">
                     {etage}
                   </span>
-                  <span className="font-[family-name:var(--font-mono)] font-bold text-sm text-[#726C60]">
+                  <span className="font-[family-name:var(--font-mono)] font-bold text-sm text-[#587064]">
                     {etageSums.map((s) => `${fmt(s.total)} ${s.unit}`).join(" · ")}
                   </span>
                 </div>
@@ -115,27 +115,27 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
                     return (
                       <div
                         key={raum}
-                        className="bg-white border border-[#DAD3C4] rounded-xl p-3"
+                        className="bg-white border border-[#C3D8CC] rounded-xl p-3"
                       >
                         <div className="flex justify-between items-baseline mb-1.5">
                           <span className="font-bold text-sm">{raum}</span>
-                          <span className="font-[family-name:var(--font-mono)] font-bold text-xs text-[#4A6670]">
+                          <span className="font-[family-name:var(--font-mono)] font-bold text-xs text-[#1F6B58]">
                             {raumSums.map((s) => `${fmt(s.total)} ${s.unit}`).join(" · ")}
                           </span>
                         </div>
                         {posList.map((p) => (
                           <div
                             key={p.id}
-                            className="flex items-center justify-between gap-2 py-1.5 border-t border-[#DAD3C4] first:border-t-0"
+                            className="flex items-center justify-between gap-2 py-1.5 border-t border-[#C3D8CC] first:border-t-0"
                           >
                             <div className="min-w-0 flex-1">
-                              <div className="text-xs font-[family-name:var(--font-display)] font-bold uppercase text-[#726C60]">
+                              <div className="text-xs font-[family-name:var(--font-display)] font-bold text-[#587064]">
                                 {p.position || "Position"}
                               </div>
                               <div className="font-[family-name:var(--font-mono)] text-sm break-words">
                                 {p.formel}
                               </div>
-                              <div className="text-xs text-[#726C60]">
+                              <div className="text-xs text-[#587064]">
                                 {p.datum}
                                 {p.mitarbeiterName ? ` · ${p.mitarbeiterName}` : ""}
                               </div>
@@ -155,7 +155,7 @@ export default async function ProjectPage(props: PageProps<"/dashboard/[projectI
                               <button
                                 type="submit"
                                 aria-label="Position löschen"
-                                className="w-6 h-6 rounded-full border border-[#DAD3C4] text-[#B3261E] text-xs"
+                                className="w-6 h-6 rounded-full border border-[#C3D8CC] text-[#B3261E] text-xs"
                               >
                                 ✕
                               </button>

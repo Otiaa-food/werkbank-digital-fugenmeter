@@ -33,11 +33,11 @@ function LoginForm() {
 
   return (
     <main className="flex-1 flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-white border border-[#DAD3C4] rounded-2xl p-6">
-        <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl mb-1">
+      <div className="w-full max-w-sm bg-white border border-[#C3D8CC] rounded-2xl p-6">
+        <h1 className="font-[family-name:var(--font-display)] font-extrabold tracking-wide text-2xl inline-block bg-[#1F6B58] text-white rounded-xl px-4 py-1.5 mb-1">
           Maßwerk
         </h1>
-        <p className="text-sm text-[#726C60] mb-6">Anmelden und Aufmaß erfassen.</p>
+        <p className="text-sm text-[#587064] mb-6">Anmelden und Aufmaß erfassen.</p>
 
         {justRegistered && (
           <p className="text-sm text-[#1F7A4D] mb-4">
@@ -47,25 +47,25 @@ function LoginForm() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <label className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+            <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
               E-Mail
             </span>
             <input
               name="email"
               type="email"
               required
-              className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+              className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+            <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
               Passwort
             </span>
             <input
               name="password"
               type="password"
               required
-              className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+              className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
             />
           </label>
 
@@ -78,15 +78,15 @@ function LoginForm() {
           <button
             type="submit"
             disabled={pending}
-            className="mt-2 w-full bg-[#FF6A13] text-white font-[family-name:var(--font-display)] font-bold uppercase tracking-wide text-lg rounded-lg py-3 disabled:opacity-50"
+            className="mt-2 w-full bg-[#1F6B58] text-white font-[family-name:var(--font-display)] font-bold tracking-wide text-lg rounded-lg py-3 disabled:opacity-50"
           >
             {pending ? "Melde an …" : "Anmelden"}
           </button>
         </form>
 
-        <p className="text-sm text-[#726C60] mt-4">
+        <p className="text-sm text-[#587064] mt-4">
           Noch kein Zugang?{" "}
-          <Link href="/register" className="text-[#4A6670] underline">
+          <Link href="/register" className="text-[#1F6B58] underline">
             Betrieb anlegen
           </Link>
         </p>

@@ -5,8 +5,8 @@
    überschreiben (sonst: helle Schrift auf weißen Feldern). */
 :root {
   color-scheme: light;
-  --background: #ede9e1;
-  --foreground: #24211d;
+  --background: #E3EEE7;
+  --foreground: #12261D;
 }
 
 @theme inline {
@@ -19,7 +19,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 
 /* Formularfelder: immer dunkle Schrift auf weißem Grund, nie breiter als ihr Container */
@@ -30,12 +30,12 @@ textarea {
   min-width: 0;
   box-sizing: border-box;
   background-color: #ffffff;
-  color: #24211d;
+  color: #12261D;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #9a9385;
+  color: #7f968a;
   opacity: 1;
 }
 

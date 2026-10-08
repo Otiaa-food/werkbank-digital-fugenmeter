@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const display = Barlow_Condensed({
+const display = Fraunces({
   variable: "--font-display",
   weight: ["600", "700", "800"],
   subsets: ["latin"],
 });
-const body = Inter({
+const body = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
 });
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FF6A13",
+  themeColor: "#1F6B58",
   viewportFit: "cover",
 };
 
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="de"
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#EDE9E1] text-[#24211D]">
+      <body className="min-h-full flex flex-col bg-[#E3EEE7] font-[family-name:var(--font-body)] text-[#12261D]">
         <Providers>{children}</Providers>
       </body>
     </html>

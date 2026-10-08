@@ -59,7 +59,7 @@ export function ExportCsvButton({
       type="button"
       onClick={handleExport}
       disabled={entries.length === 0}
-      className="w-full border border-[#4A6670] text-[#4A6670] font-semibold rounded-lg py-2.5 disabled:opacity-40"
+      className="w-full border border-[#1F6B58] text-[#1F6B58] font-semibold rounded-lg py-2.5 disabled:opacity-40"
     >
       Als CSV exportieren
     </button>

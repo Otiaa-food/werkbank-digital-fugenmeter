@@ -58,14 +58,14 @@ export function EntryForm({
     <form ref={formRef} action={formAction} className="flex flex-col gap-3">
       <div className="flex gap-2">
         <label className="flex-1 flex flex-col gap-1">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
             {profile.etageLabel}
           </span>
           <input
             name="etage"
             list="etage-list"
             placeholder={`z. B. ${etagenVorschlaege[0] ?? ""}`}
-            className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+            className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
           />
           <datalist id="etage-list">
             {etagenVorschlaege.map((e) => (
@@ -74,13 +74,13 @@ export function EntryForm({
           </datalist>
         </label>
         <label className="flex-1 flex flex-col gap-1">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
             {profile.raumLabel}
           </span>
           <input
             name="raum"
             list="raum-list"
-            className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+            className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
           />
           <datalist id="raum-list">
             {raeumeVorschlaege.map((r) => (
@@ -91,7 +91,7 @@ export function EntryForm({
       </div>
 
       <div>
-        <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60] block mb-1.5">
+        <span className="text-xs font-semibold uppercase tracking-wide text-[#587064] block mb-1.5">
           Position
         </span>
         <div className="flex flex-wrap gap-1.5 mb-2">
@@ -103,10 +103,10 @@ export function EntryForm({
                 setPosition(p.name);
                 setEinheit(p.unit);
               }}
-              className={`text-xs font-[family-name:var(--font-display)] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full border ${
+              className={`text-xs font-[family-name:var(--font-display)] font-bold tracking-wide px-3 py-1.5 rounded-full border ${
                 position === p.name
-                  ? "bg-[#4A6670] border-[#4A6670] text-white"
-                  : "bg-white border-[#DAD3C4] text-[#726C60]"
+                  ? "bg-[#1F6B58] border-[#1F6B58] text-white"
+                  : "bg-white border-[#C3D8CC] text-[#587064]"
               }`}
             >
               {p.name}
@@ -118,13 +118,13 @@ export function EntryForm({
           value={position}
           onChange={(e) => setPosition(e.target.value)}
           placeholder={`z. B. ${profile.positions[0]?.name ?? ""}`}
-          className="w-full border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+          className="w-full border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
         />
       </div>
 
       <div className="flex gap-2">
         <label className="flex-[2] flex flex-col gap-1">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
             Menge (Rechnung wie auf dem Zettel)
           </span>
           <input
@@ -133,18 +133,18 @@ export function EntryForm({
             onChange={(e) => setFormel(e.target.value)}
             inputMode="decimal"
             placeholder="4.65 x 2 + 3.86 x 2"
-            className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base font-[family-name:var(--font-mono)] font-semibold focus:outline-none focus:border-[#4A6670]"
+            className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base font-[family-name:var(--font-mono)] font-semibold focus:outline-none focus:border-[#1F6B58]"
           />
         </label>
         <label className="flex-1 flex flex-col gap-1">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
             Einheit
           </span>
           <select
             name="einheit"
             value={einheit}
             onChange={(e) => setEinheit(e.target.value)}
-            className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+            className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
           >
             {ALL_UNITS.map((u) => (
               <option key={u} value={u}>
@@ -156,7 +156,7 @@ export function EntryForm({
       </div>
       <p
         className={`text-sm font-[family-name:var(--font-mono)] font-semibold -mt-1 ${
-          preview !== null ? "text-[#1F7A4D]" : "text-[#726C60]"
+          preview !== null ? "text-[#1F7A4D]" : "text-[#587064]"
         }`}
       >
         {formel.trim() === ""
@@ -167,7 +167,7 @@ export function EntryForm({
       </p>
 
       <label className="flex flex-col gap-1">
-        <span className="text-xs font-semibold uppercase tracking-wide text-[#726C60]">
+        <span className="text-xs font-semibold uppercase tracking-wide text-[#587064]">
           Kürzel / Name
         </span>
         <input
@@ -175,7 +175,7 @@ export function EntryForm({
           value={mitarbeiter}
           onChange={(e) => setMitarbeiter(e.target.value)}
           placeholder="z. B. T.K."
-          className="border border-[#DAD3C4] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#4A6670]"
+          className="border border-[#C3D8CC] rounded-lg px-3 py-2.5 text-base focus:outline-none focus:border-[#1F6B58]"
         />
       </label>
 
@@ -188,7 +188,7 @@ export function EntryForm({
       <button
         type="submit"
         disabled={pending}
-        className="bg-[#FF6A13] text-white font-[family-name:var(--font-display)] font-bold uppercase tracking-wide text-lg rounded-lg py-3.5 disabled:opacity-50"
+        className="bg-[#1F6B58] text-white font-[family-name:var(--font-display)] font-bold tracking-wide text-lg rounded-lg py-3.5 disabled:opacity-50"
       >
         {pending ? "Speichert …" : "+ Position hinzufügen"}
       </button>
